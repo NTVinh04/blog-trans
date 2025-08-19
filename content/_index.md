@@ -306,7 +306,6 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 
 ### Tài liệu tiếng Việt
 - [LlamaIndex](https://www.studywithgpt.com/vi/tutorial/timkuq): Tài liệu Llamaindex tiếng Việt
-- [AWS Learning Resources](link): Tài nguyên học tập AWS
 - [S3](https://000057.awsstudygroup.com/vi/)
 - [Azure Blob Storage](https://cloudvietnam18.wordpress.com/2019/09/15/huong-dan-tao-va-truy-cap-blob-storage-tren-microsoft-azure/)
 
