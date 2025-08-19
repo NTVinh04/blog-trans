@@ -1,3 +1,7 @@
+baseURL = "https://ntvinh04.github.io/blog-trans/"
+canonifyURLs = true
+relativeURLs = true
+
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 
