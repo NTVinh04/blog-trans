@@ -12,7 +12,7 @@
 
 ## 📋 Tóm tắt
 
-Bài viết hướng dẫn cách xây dựng một **Knowledge Retrieval Agent** - một Agent có khả năng truy xuất thông tin từ các tập dữ liệu bên ngoài và đưa ra câu trả lời phù hợp. Để làm điều này, tác giả giới thiệu về LlamaIndex – công cụ giúp kết nối ngôn ngữ lớn và dữ liệu ngoài bằng cách sử dụng chỉ mục (index) để truy vấn hiệu quả. Bài viết hướng dẫn từng bước từ việc cài đặt môi trường, chuẩn bị dữ liệu, xây dựng index, truy vấn thông tin, tới cải thiện kết quả bằng Hugging Face, và kết nối với AWS S3 hay Azure Blob Storage. Và cuối cùng là các trường hợp sử dụng thực tiễn và lưu ý tối ưu hóa khi triển khai.
+Bài viết hướng dẫn cách xây dựng một **Knowledge Retrieval Agent** - một Agent có khả năng truy xuất thông tin từ các tập dữ liệu bên ngoài và đưa ra câu trả lời phù hợp. Để làm điều này, tác giả giới thiệu về LlamaIndex – công cụ giúp kết nối mô hình ngôn ngữ lớn và dữ liệu ngoài bằng cách sử dụng chỉ mục (index) để truy vấn hiệu quả. Bài viết hướng dẫn từng bước từ việc cài đặt môi trường, chuẩn bị dữ liệu, xây dựng index, truy vấn thông tin, tới cải thiện kết quả bằng Hugging Face, và kết nối với AWS S3 hay Azure Blob Storage. Và cuối cùng là các trường hợp sử dụng thực tiễn và lưu ý tối ưu hóa khi triển khai.
 
 **🎯 Đối tượng đọc**: Developer/AI Engineer trình độ Intermediate muốn triển khai Agent có tính ứng dụng cao  
 **📊 Độ khó**: Intermediate  
@@ -44,8 +44,8 @@ Bạn hãy tưởng tượng ra một người thủ thư ảo, người mà có
 
 Nhưng vấn đề bây giờ là làm sao để cung cấp quyền hạn cho người thủ thư này quyền được truy cập vào các tài liệu văn bản, cơ sở dữ liệu và các bài viết? Đây chính là lúc mà chúng ta sử dụng LlamaIndex
 
-#### LlamaIndex cầu nối giữa dữ liệu và ngôn ngữ lớn
-LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa quá trình tích hợp ngôn ngữ lớn như OpenAI GPT-4 với các dữ liệu bên ngoài một cách hiệu quả. Thay vì làm quá tải mô hình với lượng lớn dữ liệu đầu vào thì LlamaIndex cho phép AI truy vấn một chỉ mục đã được xây dựng sẵn dựa trên dữ liệu đã có, giúp các phản hồi nhanh và chính xác hơn
+#### LlamaIndex cầu nối giữa dữ liệu và mô hình ngôn ngữ lớn
+LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa quá trình tích hợp mô hình ngôn ngữ lớn như OpenAI GPT-4 với các dữ liệu bên ngoài một cách hiệu quả. Thay vì làm quá tải mô hình với lượng lớn dữ liệu đầu vào thì LlamaIndex cho phép AI truy vấn một chỉ mục đã được xây dựng sẵn dựa trên dữ liệu đã có, giúp các phản hồi nhanh và chính xác hơn
 ##### Các lợi ích bao gồm
  - Truy xuất thông tin từ loại dữ liệu có cấu trúc (ví dụ: table trong sql) và dữ liệu không có cấu trúc (ví dụ: văn bản)
  - Tương thích với OpenAI API và Hugging Face Transformers
@@ -53,7 +53,7 @@ LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa 
 
 ### Phần 3: Xây dựng Agent truy xuất thông tin
 Bây giờ chúng ta sẽ đi từng bước để xây dựng một Agent có thể truy xuất tri thức từ dữ liệu tùy chính của bạn
-#### Bước 1: Cài đặt mỗi trường
+#### Bước 1: Cài đặt môi trường
 Trước tiên cần phải tải các công cụ cần thiết bao gồm LlamaIndex, OpenAI’s API, and Hugging Face Transformers
 ```
 pip install llama-index openai transformers
@@ -289,8 +289,8 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 
 | English | Tiếng Việt | Định nghĩa |
 |---------|------------|------------|
-| Agent | AI tự chủ | Phần mềm dựa trên trí tuệ nhân tạo, có khả năng tự động thực hiện nhiệm vụ như trả lời câu hỏi, tìm kiếm thông tin, phân tích dữ liệu hoặc đưa ra quyết định. Khác với chatbot thụ động chỉ phản hồi khi được hỏi, Agent có thể chủ động hành động dựa trên mục tiêu đã được giao |
-| LLMs | Ngôn ngữ lớn | là các hệ thống trí tuệ nhân tạo (AI) tiên tiến được thiết kế để xử lý, hiểu và tạo văn bản giống con người |
+| Agent | Tác tử | Phần mềm dựa trên trí tuệ nhân tạo, có khả năng tự động thực hiện nhiệm vụ như trả lời câu hỏi, tìm kiếm thông tin, phân tích dữ liệu hoặc đưa ra quyết định. Khác với chatbot thụ động chỉ phản hồi khi được hỏi, Agent có thể chủ động hành động dựa trên mục tiêu đã được giao |
+| LLMs | Mô hình ngôn ngữ lớn | là các hệ thống trí tuệ nhân tạo (AI) tiên tiến được thiết kế để xử lý, hiểu và tạo văn bản giống con người |
 | index | Chỉ mục | là một cấu trúc dữ liệu được sử dụng trong các hệ quản trị cơ sở dữ liệu và các công cụ tìm kiếm để tăng tốc độ truy vấn và tìm kiếm thông tin |
 | dataset | Bộ dữ liệu | là tập hợp dữ liệu có tổ chức, đóng vai trò cốt lõi trong các lĩnh vực công nghệ như trí tuệ nhân tạo và học máy |
 | production | Môi trường thực tế | môi trường triển khai hệ thống để phục vụ người dùng cuối |
@@ -298,6 +298,10 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 | Embedding | Biểu diễn vector | biến dữ liệu (ví dụ văn bản, tài liệu) thành một dãy số (vector) mà máy tính có thể hiểu và so sánh |
 | Reader |  | Là một class trong LlamaIndex |
 | Flask |  | là một framework web viết bằng Python, được dùng để xây dựng các ứng dụng web hoặc API |
+| Chunking | Chia khối dữ liệu | là quá trình chia nhỏ văn bản lớn thành các đoạn nhỏ hơn để dễ xử lý và lưu trữ trong cơ sở dữ liệu tìm kiếm |
+| Metadata | Siêu dữ liệu | là thông tin bổ sung mô tả về dữ liệu, ví dụ: tác giả, ngày tạo, loại tài liệu. Dùng để lọc và tìm kiếm nhanh hơn |
+| Temperature | Nhiệt độ trong sinh văn bản | là tham số điều chỉnh mức độ sáng tạo của mô hình: nếu tham số thấp thì câu trả lời ổn định, còn nếu cao thì câu trả lời đa dạng hơn |
+| max_tokens | Số lượng token tối đa | là giới hạn độ dài của đầu ra do mô hình tạo ra, để kiểm soát chi phí và thời gian xử lý |
 ## 🔗 Tài liệu tham khảo
 
 ### Tài liệu gốc
@@ -308,6 +312,7 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 - [LlamaIndex](https://www.studywithgpt.com/vi/tutorial/timkuq): Tài liệu Llamaindex tiếng Việt
 - [S3](https://000057.awsstudygroup.com/vi/)
 - [Azure Blob Storage](https://cloudvietnam18.wordpress.com/2019/09/15/huong-dan-tao-va-truy-cap-blob-storage-tren-microsoft-azure/)
+- [AWS](https://cloudjourney.awsstudygroup.com/vi/)
 
 ### Tools và Services
 - [LlamaIndex](https://www.llamaindex.ai/)  
@@ -335,7 +340,7 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 
 Bài dịch này được thực hiện trong khuôn khổ **FCJ Internship Program**. 
 
-**📧 Liên hệ**: [vinh021104@gmail.com]  
+**📧 Liên hệ**: [vinh021104@gmail.com](vinh021104@gmail.com)  
 **💬 Feedback**: Mọi góp ý để cải thiện chất lượng dịch thuật xin gửi về email trên  
 **🔄 Updates**: Bài dịch sẽ được cập nhật dựa trên feedback từ cộng đồng
 

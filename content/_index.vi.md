@@ -12,7 +12,7 @@
 
 ## 📋 Tóm tắt
 
-Bài viết hướng dẫn cách xây dựng một **Knowledge Retrieval Agent** - một Agent có khả năng truy xuất thông tin từ các tập dữ liệu bên ngoài và đưa ra câu trả lời phù hợp. Để làm điều này, tác giả giới thiệu về LlamaIndex – công cụ giúp kết nối ngôn ngữ lớn và dữ liệu ngoài bằng cách sử dụng chỉ mục (index) để truy vấn hiệu quả. Bài viết hướng dẫn từng bước từ việc cài đặt môi trường, chuẩn bị dữ liệu, xây dựng index, truy vấn thông tin, tới cải thiện kết quả bằng Hugging Face, và kết nối với AWS S3 hay Azure Blob Storage. Và cuối cùng là các trường hợp sử dụng thực tiễn và lưu ý tối ưu hóa khi triển khai.
+Bài viết hướng dẫn cách xây dựng một **Knowledge Retrieval Agent** - một Agent có khả năng truy xuất thông tin từ các tập dữ liệu bên ngoài và đưa ra câu trả lời phù hợp. Để làm điều này, tác giả giới thiệu về LlamaIndex – công cụ giúp kết nối mô hình ngôn ngữ lớn và dữ liệu ngoài bằng cách sử dụng chỉ mục (index) để truy vấn hiệu quả. Bài viết hướng dẫn từng bước từ việc cài đặt môi trường, chuẩn bị dữ liệu, xây dựng index, truy vấn thông tin, tới cải thiện kết quả bằng Hugging Face, và kết nối với AWS S3 hay Azure Blob Storage. Và cuối cùng là các trường hợp sử dụng thực tiễn và lưu ý tối ưu hóa khi triển khai.
 
 **🎯 Đối tượng đọc**: Developer/AI Engineer trình độ Intermediate muốn triển khai Agent có tính ứng dụng cao  
 **📊 Độ khó**: Intermediate  
@@ -44,8 +44,8 @@ Bạn hãy tưởng tượng ra một người thủ thư ảo, người mà có
 
 Nhưng vấn đề bây giờ là làm sao để cung cấp quyền hạn cho người thủ thư này quyền được truy cập vào các tài liệu văn bản, cơ sở dữ liệu và các bài viết? Đây chính là lúc mà chúng ta sử dụng LlamaIndex
 
-#### LlamaIndex cầu nối giữa dữ liệu và ngôn ngữ lớn
-LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa quá trình tích hợp ngôn ngữ lớn như OpenAI GPT-4 với các dữ liệu bên ngoài một cách hiệu quả. Thay vì làm quá tải mô hình với lượng lớn dữ liệu đầu vào thì LlamaIndex cho phép AI truy vấn một chỉ mục đã được xây dựng sẵn dựa trên dữ liệu đã có, giúp các phản hồi nhanh và chính xác hơn
+#### LlamaIndex cầu nối giữa dữ liệu và mô hình ngôn ngữ lớn
+LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa quá trình tích hợp mô hình ngôn ngữ lớn như OpenAI GPT-4 với các dữ liệu bên ngoài một cách hiệu quả. Thay vì làm quá tải mô hình với lượng lớn dữ liệu đầu vào thì LlamaIndex cho phép AI truy vấn một chỉ mục đã được xây dựng sẵn dựa trên dữ liệu đã có, giúp các phản hồi nhanh và chính xác hơn
 ##### Các lợi ích bao gồm
  - Truy xuất thông tin từ loại dữ liệu có cấu trúc (ví dụ: table trong sql) và dữ liệu không có cấu trúc (ví dụ: văn bản)
  - Tương thích với OpenAI API và Hugging Face Transformers
@@ -289,8 +289,8 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 
 | English | Tiếng Việt | Định nghĩa |
 |---------|------------|------------|
-| Agent | AI tự chủ | Phần mềm dựa trên trí tuệ nhân tạo, có khả năng tự động thực hiện nhiệm vụ như trả lời câu hỏi, tìm kiếm thông tin, phân tích dữ liệu hoặc đưa ra quyết định. Khác với chatbot thụ động chỉ phản hồi khi được hỏi, Agent có thể chủ động hành động dựa trên mục tiêu đã được giao |
-| LLMs | Ngôn ngữ lớn | là các hệ thống trí tuệ nhân tạo (AI) tiên tiến được thiết kế để xử lý, hiểu và tạo văn bản giống con người |
+| Agent | Tác tử | Phần mềm dựa trên trí tuệ nhân tạo, có khả năng tự động thực hiện nhiệm vụ như trả lời câu hỏi, tìm kiếm thông tin, phân tích dữ liệu hoặc đưa ra quyết định. Khác với chatbot thụ động chỉ phản hồi khi được hỏi, Agent có thể chủ động hành động dựa trên mục tiêu đã được giao |
+| LLMs | Mô hình ngôn ngữ lớn | là các hệ thống trí tuệ nhân tạo (AI) tiên tiến được thiết kế để xử lý, hiểu và tạo văn bản giống con người |
 | index | Chỉ mục | là một cấu trúc dữ liệu được sử dụng trong các hệ quản trị cơ sở dữ liệu và các công cụ tìm kiếm để tăng tốc độ truy vấn và tìm kiếm thông tin |
 | dataset | Bộ dữ liệu | là tập hợp dữ liệu có tổ chức, đóng vai trò cốt lõi trong các lĩnh vực công nghệ như trí tuệ nhân tạo và học máy |
 | production | Môi trường thực tế | môi trường triển khai hệ thống để phục vụ người dùng cuối |
