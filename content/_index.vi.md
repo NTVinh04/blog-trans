@@ -53,7 +53,7 @@ LlamaIndex (hay trước đây còn gọi là GPT Index) đã đơn giản hóa 
 
 ### Phần 3: Xây dựng Agent truy xuất thông tin
 Bây giờ chúng ta sẽ đi từng bước để xây dựng một Agent có thể truy xuất tri thức từ dữ liệu tùy chính của bạn
-#### Bước 1: Cài đặt mỗi trường
+#### Bước 1: Cài đặt môi trường
 Trước tiên cần phải tải các công cụ cần thiết bao gồm LlamaIndex, OpenAI’s API, and Hugging Face Transformers
 ```
 pip install llama-index openai transformers
@@ -298,6 +298,10 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 | Embedding | Biểu diễn vector | biến dữ liệu (ví dụ văn bản, tài liệu) thành một dãy số (vector) mà máy tính có thể hiểu và so sánh |
 | Reader |  | Là một class trong LlamaIndex |
 | Flask |  | là một framework web viết bằng Python, được dùng để xây dựng các ứng dụng web hoặc API |
+| Chunking | Chia khối dữ liệu | là quá trình chia nhỏ văn bản lớn thành các đoạn nhỏ hơn để dễ xử lý và lưu trữ trong cơ sở dữ liệu tìm kiếm |
+| Metadata | Siêu dữ liệu | là thông tin bổ sung mô tả về dữ liệu, ví dụ: tác giả, ngày tạo, loại tài liệu. Dùng để lọc và tìm kiếm nhanh hơn |
+| Temperature | Nhiệt độ trong sinh văn bản | là tham số điều chỉnh mức độ sáng tạo của mô hình: nếu tham số thấp thì câu trả lời ổn định, còn nếu cao thì câu trả lời đa dạng hơn |
+| max_tokens | Số lượng token tối đa | là giới hạn độ dài của đầu ra do mô hình tạo ra, để kiểm soát chi phí và thời gian xử lý |
 ## 🔗 Tài liệu tham khảo
 
 ### Tài liệu gốc
@@ -308,6 +312,7 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 - [LlamaIndex](https://www.studywithgpt.com/vi/tutorial/timkuq): Tài liệu Llamaindex tiếng Việt
 - [S3](https://000057.awsstudygroup.com/vi/)
 - [Azure Blob Storage](https://cloudvietnam18.wordpress.com/2019/09/15/huong-dan-tao-va-truy-cap-blob-storage-tren-microsoft-azure/)
+- [AWS](https://cloudjourney.awsstudygroup.com/vi/)
 
 ### Tools và Services
 - [LlamaIndex](https://www.llamaindex.ai/)  
@@ -335,7 +340,7 @@ Bạn đã sẵn sàng để tiến xa hơn chưa? Hãy thử nghiệm với cá
 
 Bài dịch này được thực hiện trong khuôn khổ **FCJ Internship Program**. 
 
-**📧 Liên hệ**: [vinh021104@gmail.com]  
+**📧 Liên hệ**: [vinh021104@gmail.com](vinh021104@gmail.com)  
 **💬 Feedback**: Mọi góp ý để cải thiện chất lượng dịch thuật xin gửi về email trên  
 **🔄 Updates**: Bài dịch sẽ được cập nhật dựa trên feedback từ cộng đồng
 
